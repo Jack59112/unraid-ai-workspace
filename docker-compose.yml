@@ -9,6 +9,7 @@ services:
     environment:
       - TZ=Europe/Paris
       - ENABLE_SSH=false
+      - WEB_PASSWORD=change-me
       - WEB_PORT=8088
       - SSH_PORT=2222
     volumes:

@@ -1,4 +1,17 @@
-﻿#!/usr/bin/env bash
+#!/usr/bin/env bash
 set -euo pipefail
-cd /workspace
-python3 -m http.server "${WEB_PORT:-8088}"
+
+mkdir -p /config /workspace
+chown -R abc:abc /config /workspace || true
+
+auth_args=()
+if [ -n "${WEB_PASSWORD:-}" ]; then
+  auth_args=(-c "codex:${WEB_PASSWORD}")
+fi
+
+exec ttyd \
+  -p "${WEB_PORT:-8088}" \
+  -W \
+  -t titleFixed="Unraid AI Workspace" \
+  "${auth_args[@]}" \
+  sudo -E -u abc HOME=/config bash -lc 'cd /workspace && exec bash -l'

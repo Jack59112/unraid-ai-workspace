@@ -19,6 +19,7 @@
   <Config Name="Unraid Read Only" Target="/unraid" Default="/mnt/user" Mode="ro" Description="Read-only access to Unraid user shares" Type="Path" Display="advanced" Required="false" Mask="false">/mnt/user</Config>
   <Config Name="OPENAI_API_KEY" Target="OPENAI_API_KEY" Default="" Description="OpenAI API key" Type="Variable" Display="always" Required="false" Mask="true"></Config>
   <Config Name="GITHUB_TOKEN" Target="GITHUB_TOKEN" Default="" Description="Optional GitHub token" Type="Variable" Display="advanced" Required="false" Mask="true"></Config>
+  <Config Name="WEB_PASSWORD" Target="WEB_PASSWORD" Default="" Description="Optional web terminal password. Login user is codex." Type="Variable" Display="always" Required="false" Mask="true"></Config>
   <Config Name="ENABLE_SSH" Target="ENABLE_SSH" Default="false" Description="Enable SSH service" Type="Variable" Display="advanced" Required="true" Mask="false">false</Config>
   <Config Name="TZ" Target="TZ" Default="Europe/Paris" Description="Timezone" Type="Variable" Display="advanced" Required="true" Mask="false">Europe/Paris</Config>
 </Container>

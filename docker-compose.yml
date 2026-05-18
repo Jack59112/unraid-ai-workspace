@@ -1,0 +1,18 @@
+﻿version: "3.8"
+services:
+  unraid-ai-workspace:
+    image: ghcr.io/jack59112/unraid-ai-workspace:latest
+    container_name: unraid-ai-workspace
+    ports:
+      - "8088:8088"
+      - "2222:2222"
+    environment:
+      - TZ=Europe/Paris
+      - ENABLE_SSH=false
+      - WEB_PORT=8088
+      - SSH_PORT=2222
+    volumes:
+      - /mnt/user/appdata/unraid-ai-workspace:/config
+      - /mnt/user/work_chatgpt:/workspace
+      - /mnt/user:/unraid:ro
+    restart: unless-stopped

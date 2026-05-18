@@ -1,0 +1,24 @@
+﻿<?xml version="1.0"?>
+<Container version="2">
+  <Name>Unraid-AI-Workspace</Name>
+  <Repository>ghcr.io/jack59112/unraid-ai-workspace:latest</Repository>
+  <Registry>https://github.com/Jack59112/unraid-ai-workspace/pkgs/container/unraid-ai-workspace</Registry>
+  <Network>bridge</Network>
+  <Shell>bash</Shell>
+  <Privileged>false</Privileged>
+  <Support>https://github.com/Jack59112/unraid-ai-workspace/issues</Support>
+  <Project>https://github.com/Jack59112/unraid-ai-workspace</Project>
+  <Overview>AI-assisted workspace for Unraid administration, Home Assistant configuration, Git operations, and controlled automation tasks.</Overview>
+  <Category>Productivity: Tools:</Category>
+  <WebUI>http://[IP]:[PORT:8088]</WebUI>
+  <TemplateURL>https://raw.githubusercontent.com/Jack59112/unraid-ai-workspace/main/templates/unraid-ai-workspace.xml</TemplateURL>
+  <Config Name="Web UI" Target="8088" Default="8088" Mode="tcp" Description="Web workspace port" Type="Port" Display="always" Required="true" Mask="false">8088</Config>
+  <Config Name="SSH" Target="2222" Default="2222" Mode="tcp" Description="Optional SSH port" Type="Port" Display="advanced" Required="false" Mask="false">2222</Config>
+  <Config Name="Config" Target="/config" Default="/mnt/user/appdata/unraid-ai-workspace" Mode="rw" Description="Persistent application configuration" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/unraid-ai-workspace</Config>
+  <Config Name="Workspace" Target="/workspace" Default="/mnt/user/work_chatgpt" Mode="rw" Description="Working directory" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/work_chatgpt</Config>
+  <Config Name="Unraid Read Only" Target="/unraid" Default="/mnt/user" Mode="ro" Description="Read-only access to Unraid user shares" Type="Path" Display="advanced" Required="false" Mask="false">/mnt/user</Config>
+  <Config Name="OPENAI_API_KEY" Target="OPENAI_API_KEY" Default="" Description="OpenAI API key" Type="Variable" Display="always" Required="false" Mask="true"></Config>
+  <Config Name="GITHUB_TOKEN" Target="GITHUB_TOKEN" Default="" Description="Optional GitHub token" Type="Variable" Display="advanced" Required="false" Mask="true"></Config>
+  <Config Name="ENABLE_SSH" Target="ENABLE_SSH" Default="false" Description="Enable SSH service" Type="Variable" Display="advanced" Required="true" Mask="false">false</Config>
+  <Config Name="TZ" Target="TZ" Default="Europe/Paris" Description="Timezone" Type="Variable" Display="advanced" Required="true" Mask="false">Europe/Paris</Config>
+</Container>

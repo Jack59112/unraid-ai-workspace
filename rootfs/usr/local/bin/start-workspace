@@ -1,0 +1,11 @@
+﻿#!/usr/bin/env bash
+set -euo pipefail
+
+mkdir -p /config /workspace
+chown -R abc:abc /config /workspace || true
+
+if [ "${ENABLE_SSH:-false}" = "true" ]; then
+  /etc/services.d/ssh/run &
+fi
+
+exec /etc/services.d/web/run

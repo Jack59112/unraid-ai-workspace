@@ -4,7 +4,7 @@ ENV DEBIAN_FRONTEND=noninteractive \
     TZ=Europe/Paris
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
-    ca-certificates curl git jq nano nodejs npm openssh-server python3 python3-pip rsync smbclient sudo ttyd tzdata \
+    ca-certificates curl docker.io git iputils-ping jq nano netcat-openbsd nodejs npm openssh-server python3 python3-pip rsync smbclient sudo ttyd tzdata \
     && rm -rf /var/lib/apt/lists/*
 
 RUN npm install -g @openai/codex
